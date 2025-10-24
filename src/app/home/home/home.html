@@ -1,0 +1,38 @@
+: `
+<h2>Angular 20 Signals Demo</h2>
+
+<section style="margin-bottom: 1rem;">
+  <h3>Basic Signals + Computed + Effect</h3>
+  <p>Count: {{ count() }}</p>
+  <p>Counter Value: {{ counter }}</p>
+  <p>Double Count: {{ doubleCount() }}</p>
+  <button (click)="increment()">Increment</button>
+</section>
+
+<section style="margin-bottom: 1rem;">
+  <h3>toSignal (RxJS Observable -> Signal)</h3>
+  <p>Current Time: {{ currentTime() }}</p>
+</section>
+
+<section style="margin-bottom: 1rem;">
+  <h3>Linked Signals (Bi-directional Signals)</h3>
+  <p>A: {{ a() }}</p>
+  <p>B(linked to A): {{ b() }}</p>
+  <button (click)="incrementB()">Increment B</button>
+  <button (click)="decrementB()">Decrement B</button>
+</section>
+
+<section>
+  <h3> HttpResource () - Fetch User Data</h3>
+
+  @let value = userResource.value();
+
+  @if (value) {
+    <p>{{ value | json}}</p>
+    <p>
+      {{ value?. name }}
+    </p>
+  } @else {
+    <p>Loading HTTP data...</p>
+  }
+</section>
